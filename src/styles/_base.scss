@@ -1,0 +1,38 @@
+$theme-light-color-text: #171717;
+$theme-light-color-background: #e1e8ed;
+
+$theme-light-color-status-todo: #59b4d1;
+$theme-light-color-status-in-progress: #d0935a;
+$theme-light-color-status-review: #945ad1;
+$theme-light-color-status-done: #59d090;
+
+$statusColors: (
+	todo: $theme-light-color-status-todo,
+	in-progress: $theme-light-color-status-in-progress,
+	review: $theme-light-color-status-review,
+	done: $theme-light-color-status-done
+);
+
+@mixin colorSet($property, $colorMap) {
+	&_color {
+		@each $item, $color in $colorMap {
+			&_#{$item} {
+				#{$property}: $color;
+			}
+		}
+	}
+}
+
+@mixin colorSetWithBackgroundImage($property, $colorMap, $selector) {
+	&_color {
+		@each $item, $color in $colorMap {
+			&_#{$item} {
+				#{$property}: $color;
+
+				& #{$selector} {
+					background-image: url("core/assets/images/#{$item}.png");
+				}
+			}
+		}
+	}
+}

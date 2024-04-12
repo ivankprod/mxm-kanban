@@ -1,4 +1,4 @@
-@import "core/themes/light";
+@import "core/styles/base";
 
 .task {
 	padding: 14px;
@@ -7,9 +7,52 @@
 
 	background-color: #fff;
 
+	border-radius: 4px;
+
+	box-shadow: 0px 1px 2px 0px #00000040;
+
 	&__title {
 		font-size: 14px;
 		font-weight: 550;
 		line-height: 21px;
+	}
+
+	&__entries {
+		display: flex;
+		align-items: center;
+
+		margin-top: 10px;
+	}
+
+	&__user {
+		width: 21px;
+		height: 21px;
+
+		background-size: contain;
+
+		border-radius: 50%;
+
+		&_male {
+			background-image: url("core/assets/images/avatars/male.png");
+		}
+
+		&_female {
+			background-image: url("core/assets/images/avatars/female.png");
+		}
+	}
+
+	&__label {
+		margin-left: 10px;
+		padding: 4px 6px;
+
+		font-size: 10px;
+		font-weight: 550;
+		line-height: 13px;
+
+		color: #fff;
+
+		border-radius: 3px;
+
+		@include colorSet(background-color, $statusColors);
 	}
 }

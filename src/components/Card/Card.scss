@@ -1,4 +1,4 @@
-@import "core/themes/light";
+@import "core/styles/base";
 
 .card {
     display: flex;
@@ -6,8 +6,9 @@
 	gap: 10px;
 	flex-shrink: 0;
 
-    min-width: 280px;
+    min-width: 312px;
 
+	margin-bottom: 36px;
 	padding: 10px;
 
 	color: #fff;
@@ -15,41 +16,13 @@
 	background-color: #000;
 
 	border-top: 5px solid #0000001f;
-
 	border-radius: 4px;
 
-	&_color {
-		&_todo {
-			background-color: $theme-light-color-status-todo;
+	@include colorSetWithBackgroundImage(background-color, $statusColors, ".status__icon");
 
-			& .status__icon {
-				background: url("core/assets/images/todo.png");
-			}
-		}
-
-		&_in-progress {
-			background-color: $theme-light-color-status-in-progress;
-
-			& .status__icon {
-				background: url("core/assets/images/in-progress.png");
-			}
-		}
-
-		&_review {
-			background-color: $theme-light-color-status-review;
-
-			& .status__icon {
-				background: url("core/assets/images/review.png");
-			}
-		}
-
-		&_done {
-			background-color: $theme-light-color-status-done;
-
-			& .status__icon {
-				background: url("core/assets/images/done.png");
-			}
-		}
+	@media screen and (width <= 1439px) {
+		margin-left: 36px;
+		margin-right: 36px;
 	}
 
 	&__title {

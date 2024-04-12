@@ -1,6 +1,6 @@
 @import "core/assets/fonts/avenir/stylesheet.css";
 
-@import "core/themes/light";
+@import "core/styles/base";
 
 :root {
 	font-family: "Avenir Next Cyr", system-ui, Helvetica, Arial, sans-serif;
@@ -20,14 +20,16 @@
 
 * {
 	box-sizing: border-box;
+
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	display: flex;
 	place-items: center;
 
-	min-height: 900px;
-	height: 100vh;
+	min-height: 100vh;
 
 	margin: 0;
 	padding: 0;
@@ -42,11 +44,6 @@ a {
 
 a:hover {
 	opacity: 70%;
-}
-
-p {
-	margin: 0;
-	padding: 0;
 }
 
 h1 {
@@ -82,15 +79,15 @@ button:focus-visible {
 
 #root {
 	max-width: 1440px;
+	width: 100%;
+	height: 828px;
 
 	margin: 0 auto;
-	padding: 36px 60px;
-}
+	padding: 36px;
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: $theme-light-color-text;
+	background-image: url("core/assets/svg/home.svg");
+	background-position: center center;
+	background-repeat: no-repeat;
 
-		background-color: $theme-light-color-background;
-	}
+	box-sizing: content-box;
 }

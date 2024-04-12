@@ -16,6 +16,7 @@ export default function Card({ tasks, type }) {
 						key={task.id}
 						title={task.title}
 						user={task.user}
+						status={type.id}
 						label={task.label}
 					/>
 				))}
