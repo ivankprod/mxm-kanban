@@ -1,0 +1,15 @@
+@import "core/themes/light";
+
+.task {
+	padding: 14px;
+
+	color: $theme-light-color-text;
+
+	background-color: #fff;
+
+	&__title {
+		font-size: 14px;
+		font-weight: 550;
+		line-height: 21px;
+	}
+}
