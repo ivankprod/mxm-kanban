@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $theme-light-color-text: #171717;
 $theme-light-color-background: #e1e8ed;
 
@@ -10,7 +12,7 @@ $statusColors: (
 	todo: $theme-light-color-status-todo,
 	in-progress: $theme-light-color-status-in-progress,
 	review: $theme-light-color-status-review,
-	done: $theme-light-color-status-done
+	done: $theme-light-color-status-done,
 );
 
 @mixin colorSet($property, $colorMap) {
@@ -23,11 +25,52 @@ $statusColors: (
 	}
 }
 
-@mixin colorSetWithBackgroundImage($property, $colorMap, $selector) {
+@mixin linearGradientSet($property, $angle, $colorMap) {
+	&_color {
+		@each $item, $color in $colorMap {
+			&_#{$item} {
+				#{$property}: linear-gradient(
+					$angle,
+					$color,
+					color.scale($color, $lightness: 20%)
+				);
+			}
+		}
+	}
+}
+
+@mixin colorSet_WithBackgroundImageForSubclass(
+	$property,
+	$colorMap,
+	$selector
+) {
 	&_color {
 		@each $item, $color in $colorMap {
 			&_#{$item} {
 				#{$property}: $color;
+
+				& #{$selector} {
+					background-image: url("core/assets/images/#{$item}.png");
+				}
+			}
+		}
+	}
+}
+
+@mixin linearGradientSet_WithBackgroundImageForSubclass(
+	$property,
+	$angle,
+	$colorMap,
+	$selector
+) {
+	&_color {
+		@each $item, $color in $colorMap {
+			&_#{$item} {
+				#{$property}: linear-gradient(
+					$angle,
+					$color,
+					color.scale($color, $lightness: 20%)
+				);
 
 				& #{$selector} {
 					background-image: url("core/assets/images/#{$item}.png");
