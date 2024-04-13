@@ -20,6 +20,10 @@
 
 	@include colorSetWithBackgroundImage(background-color, $statusColors, ".status__icon");
 
+	@media screen and (width <= 768px) {
+		min-width: unset;
+	}
+
 	&__title {
 		display: flex;
 		align-items: center;

@@ -10,4 +10,8 @@
     grid-gap: 36px;
 
 	margin-top: 40px;
+
+	@media screen and (width <= 768px) {
+		grid-template-columns: auto;
+	}
 }
