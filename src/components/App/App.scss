@@ -5,13 +5,9 @@
 }
 
 .cards-wrapper {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 36px;
 
 	margin-top: 40px;
-
-	@media screen and (width <= 859px) {
-		flex-direction: column;
-	}
 }
