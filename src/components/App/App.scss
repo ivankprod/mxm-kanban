@@ -1,7 +1,17 @@
+.project-header {
+	@media screen and (width <= 859px) {
+		text-align: center;
+	}
+}
+
 .cards-wrapper {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
 
 	margin-top: 40px;
+
+	@media screen and (width <= 859px) {
+		flex-direction: column;
+	}
 }

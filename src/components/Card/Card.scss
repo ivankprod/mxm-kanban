@@ -3,13 +3,13 @@
 .card {
     display: flex;
     flex-direction: column;
-	gap: 10px;
+	gap: 11px;
 	flex-shrink: 0;
 
     min-width: 312px;
 
 	margin-bottom: 36px;
-	padding: 10px;
+	padding: 11px 10px;
 
 	color: #fff;
 
@@ -17,6 +17,8 @@
 
 	border-top: 5px solid #0000001f;
 	border-radius: 4px;
+
+	box-shadow: 0px 2px 8px 0px #00000033;
 
 	@include colorSetWithBackgroundImage(background-color, $statusColors, ".status__icon");
 

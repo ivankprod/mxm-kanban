@@ -8,7 +8,7 @@ import "./App.scss";
 export default function App() {
 	return (
 		<MainLayout>
-			<h1>Project: Example</h1>
+			<h1 className="project-header">Project: Example</h1>
 			<div className="cards-wrapper">
 				<Card
 					tasks={tasksInitial.filter(
