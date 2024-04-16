@@ -5,19 +5,22 @@ import "./Task.scss";
 export default function Task({ title, user, status, label }) {
 	return (
 		<div className="task">
-			<p className="task__title">{title}</p>
+			<p
+				dangerouslySetInnerHTML={{ __html: title }}
+				className="task__title"
+			></p>
 			<div className="task__entries">
 				<div
-					className={clsx(
-						"task__user",
-						`task__user_${user.description}`
-					)}
+					className={clsx("task__user", `task__user_${user.id}`)}
 				></div>
-				<span className={clsx(
+				<span
+					className={clsx(
 						"task__label",
-						`task__label_color_${status.description}`
+						`task__label_color_${status.id}`
 					)}
-				>{label}</span>
+				>
+					{label}
+				</span>
 			</div>
 		</div>
 	);

@@ -1,7 +1,9 @@
 import MainLayout from "core/layouts/Main";
 import Card from "core/components/Card";
 
-import tasksInitial, { TASK_STATUS } from "core/domain/task";
+import { TASK_STATUS } from "core/domain/task";
+
+import { TasksContextProvider } from "core/context/tasks";
 
 import "./App.scss";
 
@@ -10,30 +12,12 @@ export default function App() {
 		<MainLayout>
 			<h1 className="project-header">Project: Example</h1>
 			<div className="cards-wrapper">
-				<Card
-					tasks={tasksInitial.filter(
-						(task) => task.status == TASK_STATUS.todo
-					)}
-					type={TASK_STATUS.todo}
-				/>
-				<Card
-					tasks={tasksInitial.filter(
-						(task) => task.status == TASK_STATUS.inProgress
-					)}
-					type={TASK_STATUS.inProgress}
-				/>
-				<Card
-					tasks={tasksInitial.filter(
-						(task) => task.status == TASK_STATUS.review
-					)}
-					type={TASK_STATUS.review}
-				/>
-				<Card
-					tasks={tasksInitial.filter(
-						(task) => task.status == TASK_STATUS.done
-					)}
-					type={TASK_STATUS.done}
-				/>
+				<TasksContextProvider>
+					<Card type={TASK_STATUS.todo} />
+					<Card type={TASK_STATUS.inprogress} />
+					<Card type={TASK_STATUS.review} />
+					<Card type={TASK_STATUS.done} />
+				</TasksContextProvider>
 			</div>
 		</MainLayout>
 	);
