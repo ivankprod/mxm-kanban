@@ -11,6 +11,12 @@
 
 	box-shadow: 0px 1px 2px 0px #00000040;
 
+	&:hover {
+		& .task__entries_right {
+			opacity: 30%;
+		}
+	}
+
 	&__title {
 		min-height: 21px;
 
@@ -21,9 +27,25 @@
 
 	&__entries {
 		display: flex;
-		align-items: center;
+		justify-content: space-between;
 
 		margin-top: 10px;
+
+		&_left {
+			display: flex;
+		}
+
+		&_right {
+			display: flex;
+
+			opacity: 0%;
+
+			transition: opacity 0.3s ease;
+
+			&:hover {
+				opacity: 30%;
+			}
+		}
 	}
 
 	&__user {
@@ -56,5 +78,25 @@
 		border-radius: 3px;
 
 		@include colorSet(background-color, $statusColors);
+	}
+
+	&__button {
+		width: 21px;
+		height: 21px;
+
+		&_edit {
+			background-image: url("core/assets/svg/edit.svg");
+		}
+
+		&_delete {
+			background-image: url("core/assets/svg/delete.svg");
+			background-size: 16px 15px;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+
+		& + & {
+			margin-left: 4px;
+		}
 	}
 }
